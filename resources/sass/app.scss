@@ -1,0 +1,47 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+$primary : #0d6d74;
+$border-radius-lg : 2rem;
+$btn-padding-x-lg : 2rem;
+$border-radius : 1rem;
+
+// Variables
+@import 'variables';
+
+// Body
+$body-bg: #ffff;
+
+// Typography
+$font-family-sans-serif: 'Nunito', sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+.user-img{
+    width: 40px;
+    height: 40px;
+}
+
+.cover-img{
+    height: 350px;
+    object-fit: cover;
+}
+
+.h-350{
+    height: 350px;
+}
+
+.post{
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.post:last-child{
+    border-bottom: none;
+}
