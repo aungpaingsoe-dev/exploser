@@ -18,7 +18,7 @@
             <form action="{{ route('post.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-floating mb-4">
-                    <input type="text" value="{{ old('title') }}" class="form-control border  @error('title') is-invalid  @enderror" name="title" id="postTitle" placeholder="name@example.com">
+                    <input type="text" value="{{ old('title') }}" class="form-control border  @error('title') is-invalid border-danger @enderror" name="title" id="postTitle" placeholder="name@example.com">
                     <label for="postTitle">Post Title</label>
                     @error('title')
                     <p class='text-danger'>{{ $message }}</p>
@@ -27,7 +27,7 @@
 
                 <div class="mb-4">
                     <img src="{{ asset('image-default.png') }}" id="coverPreview" class="w-100 rounded-2 cover-img " alt="">
-                    <input type="file" name='cover' id='cover' class="d-none">
+                    <input type="file" name='cover' id='cover' class="d-none" accept="image/jpeg,image/png">
                     @error('cover')
                     <p class='text-danger'>{{ $message }}</p>
                     @enderror
@@ -35,7 +35,7 @@
 
                 <div class="mb-4">
                     <div class="form-floating">
-                        <textarea class="form-control  @error('description') is-invalid  @enderror" name='description' style="height: 350px" placeholder="Leave a comment here" id="floatingTextarea">
+                        <textarea class="form-control  @error('description') is-invalid border-danger  @enderror" name='description' style="height: 350px" placeholder="Leave a comment here" id="floatingTextarea">
                             {{ old('description') }}
                         </textarea>
                         <label for="floatingTextarea">Share Your Experience</label>

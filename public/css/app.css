@@ -11312,3 +11312,11 @@ textarea.form-control-lg {
 .post:last-child {
   border-bottom: none;
 }
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}

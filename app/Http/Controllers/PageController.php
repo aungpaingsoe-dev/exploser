@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function index(){
-        $posts = Post::all();
+        $posts = Post::latest("id")->paginate(5);
         return view('index',['posts'=>$posts]);
     }
 

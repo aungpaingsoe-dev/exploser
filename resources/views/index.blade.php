@@ -52,6 +52,10 @@
 
                 @endforelse
             </div>
+
+            <div class="d-flex justify-content-center rounded">
+                {{ $posts->links() }}
+            </div>
         </div>
     </div>
 </div>

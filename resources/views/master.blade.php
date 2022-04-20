@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white position-fixed top-0 shadow-sm w-100" >
+<nav class="navbar navbar-expand-lg navbar-light bg-white position-fixed top-0 shadow-sm w-100" style="z-index: 2000;" >
     <div class="container">
         <a class="navbar-brand" href="{{ route('index') }}">
             <img src="{{ asset('images/logo.png') }}" height="40" alt="">
@@ -34,11 +34,11 @@
             <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ auth()->user()->name }}
-                <img src="{{ asset(auth()->user()->photo) }}" class="user-img img-fluid rounded-circle border-1 border-white shadow-sm" alt="">
+                <img src="{{ asset(auth()->user()->photo) }}" class="user-img rounded-circle border-1 border-white shadow-sm" alt="">
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Edit Profile</a></li>
-                <li><a class="dropdown-item" href="#">Change Password</a></li>
+                <li><a class="dropdown-item" href="{{ route('editProfile') }}">Edit Profile</a></li>
+                <li><a class="dropdown-item" href="{{ route('editPassword') }}">Change Password</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" onclick="event.preventDefault();document.getElementById('logout-form').submit()" href="#">Logout</a></li>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

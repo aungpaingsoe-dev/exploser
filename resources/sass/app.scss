@@ -45,3 +45,10 @@ $line-height-base: 1.6;
 .post:last-child{
     border-bottom: none;
 }
+
+.profile-img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}

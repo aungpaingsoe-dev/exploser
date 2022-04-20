@@ -2,6 +2,8 @@ window._ = require('lodash');
 
 try {
     require('bootstrap');
+    window.VenoBox = require('venobox/dist/venobox.min');
+    const ScrollReveal = require('scrollreveal/dist/scrollreveal.min')
 } catch (e) {}
 
 /**

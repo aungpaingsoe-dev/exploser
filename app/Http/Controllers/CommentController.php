@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
 use App\Models\Comment;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class CommentController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->only('destroy','store');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -36,7 +44,13 @@ class CommentController extends Controller
      */
     public function store(StoreCommentRequest $request)
     {
-        //
+        $comment = Comment::create([
+            'message' => $request->message,
+            'post_id' => $request->post_id,
+            'user_id' => Auth::id()
+        ]);
+
+        return redirect()->to(url()->previous().'#comment');
     }
 
     /**
@@ -81,6 +95,8 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        Gate::authorize('delete',$comment);
+        $comment->delete();
+        return redirect()->to(url()->previous().'#comment');
     }
 }
