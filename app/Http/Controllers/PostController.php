@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Mail\PostMail;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -63,6 +65,16 @@ class PostController extends Controller
         $post->cover = $newName;
         $post->user_id = Auth::id();
         $post->save();
+
+        // Send Mail
+        //method one
+        Mail::to('alpha.dev.myanmar@gmail.com')->send(new PostMail($post));
+
+        //method two
+//        $postMail = new PostMail($post);
+//        $postMail->subject('အသစ်ပို့ပေးမယ်။')
+//            ->from('tzuyu@gmail.com','I Love You');
+//        Mail::to('alpha.dev.myanmar@gmail.com')->send($postMail);
 
         return redirect()->route('index');
     }
