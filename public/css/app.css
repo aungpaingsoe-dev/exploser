@@ -11291,12 +11291,19 @@ textarea.form-control-lg {
 .user-img {
   width: 40px;
   height: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .cover-img {
   height: 350px;
   -o-object-fit: cover;
      object-fit: cover;
+  transition: 0.5s;
+}
+
+.cover-img:active {
+  transform: scale(1.01);
 }
 
 .h-350 {

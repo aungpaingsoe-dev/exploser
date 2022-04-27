@@ -25,11 +25,17 @@ $line-height-base: 1.6;
 .user-img{
     width: 40px;
     height: 40px;
+    object-fit: cover;
 }
 
 .cover-img{
     height: 350px;
     object-fit: cover;
+    transition: 0.5s;
+}
+
+.cover-img:active {
+    transform: scale(1.01);
 }
 
 .h-350{

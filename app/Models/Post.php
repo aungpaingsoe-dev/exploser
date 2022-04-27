@@ -9,6 +9,8 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $with = ['user'];
+
     public function user(){
         return $this->belongsTo(User::class,'user_id');
     }
@@ -19,6 +21,11 @@ class Post extends Model
 
     public function galleries(){
         return $this->hasMany(Gallery::class);
+    }
+
+    //accessor
+    public function getTitleAttribute($value){
+        return ucwords($value);
     }
 
 }

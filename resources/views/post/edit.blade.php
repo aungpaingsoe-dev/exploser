@@ -15,7 +15,7 @@
                         </p>
                     </div>
 
-                    <form action="{{ route('post.update',$post->id) }}" id="profile" method="post" enctype="multipart/form-data" id="post-create">
+                    <form action="{{ route('post.update',$post->id) }}" method="post" enctype="multipart/form-data" id="postUpdate">
                         @method('put')
                         @csrf
                         <div class="form-floating mb-4">
@@ -89,7 +89,7 @@
                     </div>
 
                     <div class="mb-4 text-end">
-                        <button class="btn btn-primary btn-lg" form="post-create">
+                        <button class="btn btn-primary btn-lg" form="postUpdate">
                             <i class="fa-solid fa-circle-plus"></i>
                             Update Post
                         </button>
